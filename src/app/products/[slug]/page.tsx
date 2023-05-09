@@ -6,11 +6,17 @@ type Props = {
   };
 };
 
-export default function page({ params }: Props) {
+export function generateMetadata({ params }: Props) {
+  return {
+    title: `제품의 이름: ${params.slug}`,
+  };
+}
+
+export default function PantsPage({ params }: Props) {
   if (params.slug === "nothing") {
     notFound();
   }
-  return <h1>{params.slug} 제품 설명 페이지!</h1>;
+  return <h1>{params.slug} 제품 소개 페이지!</h1>;
 }
 
 export function generateStaticParams() {
