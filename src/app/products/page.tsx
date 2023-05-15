@@ -1,6 +1,8 @@
 import { getProducts } from "@/service/products";
 import Link from "next/link";
 import MeowArticle from "@/components/MeowArticle";
+import clothesImage from "../../../public/images/clothes.jpg";
+import Image from "next/image";
 
 // ISR 구현 방법
 // export const revalidate = 3;
@@ -10,11 +12,10 @@ export default async function ProductsPage() {
   // revalidate: 0이면 SSR 구현 가능
   // cache -> force-cache는 SSG로 작동, no-store는 SSR로 작동
   const products = await getProducts();
-  throw new Error();
-
   return (
     <>
       <h1>제품 소개 페이지!</h1>
+      <Image src={clothesImage} alt="Clothes" priority />
       <ul>
         {products.map(({ id, name }, index) => (
           <li key={index}>
