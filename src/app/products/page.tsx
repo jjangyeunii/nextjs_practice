@@ -10,6 +10,8 @@ export default async function ProductsPage() {
   // revalidate: 0이면 SSR 구현 가능
   // cache -> force-cache는 SSG로 작동, no-store는 SSR로 작동
   const products = await getProducts();
+  throw new Error();
+
   return (
     <>
       <h1>제품 소개 페이지!</h1>
